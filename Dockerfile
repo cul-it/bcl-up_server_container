@@ -1,8 +1,9 @@
 ARG RUBY_VERSION=3.1.2
-FROM ruby:$RUBY_VERSION-alpine
+FROM ruby:$RUBY_VERSION-alpine AS base
 ARG BUNDLER_VERSION=2.3.7
 
-## Install dependencies:
+## Base stage with all necessary libraries
+## and dependencies to build the application and run it
 ## - build-base: To ensure certain gems can be compiled
 ## - git: Allow bundler to fetch and install ruby gems
 ## - nodejs: Required by Rails
@@ -22,23 +23,47 @@ RUN apk add --update --no-cache \
       imagemagick6-dev imagemagick6-libs \
       gcompat
 
+#################
+# bundler stage #
+#################
 
-WORKDIR /app/bcl-up/qa_server-webapp
+FROM base AS prod_bundler
+
+ENV APP_PATH="/app/cul-it/bcl-up_server-webapp" \
+      PATH="/app/bcl-up/qa_server-webapp:$PATH" \
+      RAILS_ROOT="/app/bcl-up/qa_server-webapp"
+
+WORKDIR /app/cul-it/bcl-up_server-webapp
 
 RUN gem install bundler:${BUNDLER_VERSION}
 
-ENV PATH="/app/bcl-up/qa_server-webapp:$PATH"
-ENV RAILS_ROOT="/app/bcl-up/qa_server-webapp"
-
 COPY Gemfile Gemfile.lock ./
 
-RUN gem update --system
-RUN bundle install
+RUN gem update --system && bundle install && \
+      rm -rf ${BUNDLE_PATH}/cache/*.gem && \
+      find ${BUNDLE_PATH}/ -name "*.c" -delete && \
+      find ${BUNDLE_PATH}/ -name "*.o" -delete
 
 COPY . .
 RUN bundle exec rake assets:precompile
 
-ENV PATH=./bin:$PATH
+###############
+# final stage #
+###############
+
+FROM base
+
+ENV APP_GRP="bcl-up-g" APP_USER="bcl-up-u" APP_PATH="/app/cul-it/bcl-up_server-webapp" \
+      PATH=./bin:$PATH \
+      RAILS_ROOT="/app/bcl-up/qa_server-webapp"
+
+RUN addgroup -S ${APP_GRP} && adduser -S ${APP_USER} -G ${APP_GRP}
+
+COPY --from=prod_bundler --chown=${APP_USER}:${APP_GRP} /usr/local/bundle/ /usr/local/bundle/
+COPY --from=prod_bundler --chown=${APP_USER}:${APP_GRP} ${APP_PATH} ${APP_PATH}
+
+USER ${APP_USER}
+WORKDIR ${APP_PATH}
 
 EXPOSE 3000
 
