@@ -1,6 +1,5 @@
 ARG RUBY_VERSION=3.1.2
 FROM ruby:$RUBY_VERSION-alpine AS base
-ARG BUNDLER_VERSION=2.3.7
 
 ## Base stage with all necessary libraries
 ## and dependencies to build the application and run it
@@ -12,26 +11,20 @@ ARG BUNDLER_VERSION=2.3.7
 ## - mariadb-dev: To allow use of MySQL2 gem
 ## - imagemagick: for image processing
 ## - gcompat: to avoid architecture-specific incompatibitilies
-RUN apk add --update --no-cache \
-      bash \
-      build-base \
-      git \
-      nodejs \
-      sqlite-dev \
-      tzdata \
-      mariadb-dev \
-      imagemagick6-dev imagemagick6-libs \
-      gcompat
+## https://docs.docker.com/build/cache/optimize/#use-cache-mounts
+RUN --mount=type=cache,target=/var/cache/apk apk add --update --no-cache \
+      bash build-base gcompat git imagemagick6-dev imagemagick6-libs \
+      mariadb-dev nodejs sqlite-dev tzdata 
 
 #################
 # bundler stage #
 #################
 
 FROM base AS prod_bundler
+ARG BUNDLER_VERSION=2.3.7
 
 ENV APP_PATH="/app/cul-it/bcl-up_server-webapp" \
-      PATH="/app/bcl-up/qa_server-webapp:$PATH" \
-      RAILS_ROOT="/app/bcl-up/qa_server-webapp"
+      PATH="/app/bcl-up/qa_server-webapp:$PATH"
 
 WORKDIR /app/cul-it/bcl-up_server-webapp
 
@@ -54,8 +47,7 @@ RUN bundle exec rake assets:precompile
 FROM base
 
 ENV APP_GRP="bcl-up-g" APP_USER="bcl-up-u" APP_PATH="/app/cul-it/bcl-up_server-webapp" \
-      PATH=./bin:$PATH \
-      RAILS_ROOT="/app/bcl-up/qa_server-webapp"
+      PATH=./bin:$PATH
 
 RUN addgroup -S ${APP_GRP} && adduser -S ${APP_USER} -G ${APP_GRP}
 
