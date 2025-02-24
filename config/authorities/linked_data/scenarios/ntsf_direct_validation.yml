@@ -1,0 +1,14 @@
+# Reference: https://github.com/LD4P/qa_server/wiki/Writing-Tests-for-an-Authority
+---
+authority:
+  service: direct
+search:
+  -
+    query: Agentfortellinger
+    position: 10
+    subject_uri: https://id.nb.no/vocabulary/ntsf/5
+    replacements:
+      maxRecords: 20
+term:
+  -
+    identifier: https://id.nb.no/vocabulary/ntsf/1248

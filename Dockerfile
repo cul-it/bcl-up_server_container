@@ -23,12 +23,12 @@ RUN apk add --update --no-cache \
       gcompat
 
 
-WORKDIR /app/ld4p/qa_server-webapp
+WORKDIR /app/bcl-up/qa_server-webapp
 
 RUN gem install bundler:${BUNDLER_VERSION}
 
-ENV PATH="/app/ld4p/qa_server-webapp:$PATH"
-ENV RAILS_ROOT="/app/ld4p/qa_server-webapp"
+ENV PATH="/app/bcl-up/qa_server-webapp:$PATH"
+ENV RAILS_ROOT="/app/bcl-up/qa_server-webapp"
 
 COPY Gemfile Gemfile.lock ./
 

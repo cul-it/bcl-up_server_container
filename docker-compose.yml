@@ -1,23 +1,20 @@
 # rails _5.2.4.3_ new .qa_server_app --database=mysql
 # rm .qa_server_app/config/database.yml # use ENV for database configuration
-# docker-compose build
-# docker-compose up app
-version: '3.2'
+# docker compose build
+# docker compose up app
 services:
   app: &app
     build:
       context: .
-    image: ld4p/qa_server:v1
-    container_name: ld4p-qa_server-app
+    image: bcl-up/qa_server:v1
+    container_name: bcl-up-qa_server-app
     stdin_open: true
     tty: true
     user: root
     env_file:
       - .env
     volumes:
-#      - .:/app/ld4p/qa_server-webapp # use for debugging
       - app_src:/app/ld4p/qa_server-webapp # use when not debugging
-#      - ${AUTHORITIES_PATH}:/app/ld4p/qa_server-webapp/config/authorities # use to setup path to authorities outside app
       - authorities:/app/ld4p/qa_server-webapp/config/authorities # use for commits with to allow cci to run
       - rails-public:/app/ld4p/qa_server-webapp/public
       - rails-tmp:/app/ld4p/qa_server-webapp/tmp
@@ -30,7 +27,7 @@ services:
   mysql:
     image: mariadb:10.6 # Not specifying version causes a runtime error: "undefined method `encoding' for -0.0:BigDecimal"
     restart: always
-    container_name: ld4p-qa_server-mysql
+    container_name: bcl-up-qa_server-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE_NAME_PREFIX}_development

@@ -65,7 +65,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ## Gems manually added to for qa and qa_server engines
 # Required gems for QA and linked data access
-gem 'qa_server', '~> 8.0'
+# gem 'qa_server', '~> 8.0'
+gem 'qa_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
 gem 'qa', '~> 5.10'
 gem 'linkeddata'
 gem 'psych', '~> 5.1'
