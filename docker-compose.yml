@@ -1,5 +1,5 @@
-# rails _5.2.4.3_ new .qa_server_app --database=mysql
-# rm .qa_server_app/config/database.yml # use ENV for database configuration
+# rails _5.2.4.3_ new .bcl_up_server_app --database=mysql
+# rm .bcl_up_server_app/config/database.yml # use ENV for database configuration
 # docker compose build
 # docker compose up app
 services:

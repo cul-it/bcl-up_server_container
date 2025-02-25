@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # This presenter class provides all data needed by the view that show the list of authorities.
 module PrependedPresenters::AuthorityListPresenter
-  # Override QaServer::AuthorityListPresenter#urls_data method
+  # Override BCLUpServer::AuthorityListPresenter#urls_data method
   # @return [Array<Hash>] A list of status data for each scenario tested plus wikidata and discogs.
   def urls_data
     url_data = @urls_data

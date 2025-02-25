@@ -67,7 +67,7 @@ Validations come in two flavors...
 
 The validations can be defined in a file with a matching file name in the [scenarios directory](https://github.com/ld4l-labs/qa_server/tree/master/config/authorities/linked_data/scenarios).  For example, direct access to the AgroVoc authority, access is configured in [config/authorities/linked_data/agrovoc_direct.json](https://github.com/ld4l-labs/qa_server/blob/master/config/authorities/linked_data/agrovoc_direct.json) and the validations are defined in [config/authorities/linked_data/scenarios/agrovoc_direct_validation.yml](https://github.com/ld4l-labs/qa_server/blob/master/config/authorities/linked_data/scenarios/agrovoc_direct_validation.yml)
 
-The UI for qa_server provides access to running connection validation and accuracy tests in the Check Status navigation menu item.
+The UI for bcl_up_server provides access to running connection validation and accuracy tests in the Check Status navigation menu item.
 
 ## Non linked-data authority access
 
