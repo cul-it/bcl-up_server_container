@@ -9,7 +9,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module BCLUpServer
+module BclUpServer
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
@@ -19,7 +19,7 @@ module BCLUpServer
     # Qa::Authorities::Discogs::GenericAuthority.discogs_secret = ENV['DISCOGS_SECRET']
 
     config.to_prepare do
-      BCLUpServer::AuthorityListPresenter.prepend PrependedPresenters::AuthorityListPresenter
+      BclUpServer::AuthorityListPresenter.prepend PrependedPresenters::AuthorityListPresenter
       Qa::Authorities::LinkedData::FindTerm.prepend PrependedLinkedData::FindTerm
       Qa::Authorities::LinkedData::SearchQuery.prepend PrependedLinkedData::SearchQuery
       RDF::Graph.prepend PrependedRdf::RdfGraph
