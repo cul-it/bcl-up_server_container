@@ -6,18 +6,18 @@ services:
   app: &app
     build:
       context: .
-    image: bcl-up/qa_server:v1
-    container_name: bcl-up-qa_server-app
+    image: bcl-up/bcl_up_server:v1
+    container_name: bcl-up-bcl_up_server-app
     stdin_open: true
     tty: true
     user: root
     env_file:
       - .env
     volumes:
-      - app_src:/app/ld4p/qa_server-webapp # use when not debugging
-      - authorities:/app/ld4p/qa_server-webapp/config/authorities # use for commits with to allow cci to run
-      - rails-public:/app/ld4p/qa_server-webapp/public
-      - rails-tmp:/app/ld4p/qa_server-webapp/tmp
+      - app_src:/app/bcl-up/bcl_up_server-webapp # use when not debugging
+      - authorities:/app/bcl-up/bcl_up_server-webapp/config/authorities # use for commits with to allow cci to run
+      - rails-public:/app/bcl-up/bcl_up_server-webapp/public
+      - rails-tmp:/app/bcl-up/bcl_up_server-webapp/tmp
       - gems:/usr/local/bundle
     ports:
       - "3000:3000"
@@ -27,7 +27,7 @@ services:
   mysql:
     image: mariadb:10.6 # Not specifying version causes a runtime error: "undefined method `encoding' for -0.0:BigDecimal"
     restart: always
-    container_name: bcl-up-qa_server-mysql
+    container_name: bcl-up-bcl_up_server-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE_NAME_PREFIX}_development
@@ -39,7 +39,7 @@ services:
       - db-mysql-data:/var/lib/mysql/data
 
 volumes:
-  app_src: # comment out when debugging and using . volume for qa_server-webapp
+  app_src: # comment out when debugging and using . volume for bcl_up_server-webapp
   authorities: # comment out when running locally
   db-mysql-data:
   gems:

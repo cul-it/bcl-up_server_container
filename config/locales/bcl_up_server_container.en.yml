@@ -1,6 +1,6 @@
 ---
 en:
-  qa_server:
+  bcl_up_server:
     application_version: "0.1.0"
     application_name:  "Authority Lookup Service"
     footer:

@@ -63,10 +63,13 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-## Gems manually added to for qa and qa_server engines
+## Gems manually added to for qa and bcl_up_server engines
 # Required gems for QA and linked data access
-# gem 'qa_server', '~> 8.0'
-gem 'qa_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
+# gem 'bcl_up_server', '~> 8.0'
+# gem 'qa_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
+gem 'bcl-up_server', git: 'https://github.com/cul-it/bcl-up_server', branch: '1-rename-qa_server-to-bcl-up_server'
+
+
 gem 'qa', '~> 5.10'
 gem 'linkeddata'
 gem 'psych', '~> 5.1'

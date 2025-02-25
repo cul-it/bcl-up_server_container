@@ -23,12 +23,12 @@ RUN apk add --update --no-cache \
       gcompat
 
 
-WORKDIR /app/bcl-up/qa_server-webapp
+WORKDIR /app/bcl-up/bcl_up_server-webapp
 
 RUN gem install bundler:${BUNDLER_VERSION}
 
-ENV PATH="/app/bcl-up/qa_server-webapp:$PATH"
-ENV RAILS_ROOT="/app/bcl-up/qa_server-webapp"
+ENV PATH="/app/bcl-up/bcl_up_server-webapp:$PATH"
+ENV RAILS_ROOT="/app/bcl-up/bcl_up_server-webapp"
 
 COPY Gemfile Gemfile.lock ./
 

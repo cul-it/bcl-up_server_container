@@ -1,6 +1,6 @@
 ---
 en:
-  qa_server:
+  bcl_up_server:
     application_version: "7.0.0"
     application_name:  "LD4P Authority Lookup Service"
     footer:

@@ -1,5 +1,5 @@
 {
-  "name": "qa_server",
+  "name": "bcl_up_server",
   "private": true,
   "dependencies": {}
 }
