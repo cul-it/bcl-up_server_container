@@ -6,19 +6,12 @@ services:
   app: &app
     build:
       context: .
-    image: bcl-up/bcl_up_server:v1
-    container_name: bcl-up-bcl_up_server-app
+    image: cul-it/bcl-up_server:v1
+    container_name: bcl-up_server-app
     stdin_open: true
     tty: true
-    user: root
     env_file:
       - .env
-    volumes:
-      - app_src:/app/bcl-up/bcl_up_server-webapp # use when not debugging
-      - authorities:/app/bcl-up/bcl_up_server-webapp/config/authorities # use for commits with to allow cci to run
-      - rails-public:/app/bcl-up/bcl_up_server-webapp/public
-      - rails-tmp:/app/bcl-up/bcl_up_server-webapp/tmp
-      - gems:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
@@ -39,9 +32,4 @@ services:
       - db-mysql-data:/var/lib/mysql/data
 
 volumes:
-  app_src: # comment out when debugging and using . volume for bcl_up_server-webapp
-  authorities: # comment out when running locally
   db-mysql-data:
-  gems:
-  rails-public:
-  rails-tmp:
