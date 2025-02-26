@@ -30,8 +30,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'linkeddata'
 gem 'psych', '~> 5.1'
 gem 'qa', '~> 5.10'
-gem 'qa_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
-
+gem 'bcl_up_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
 
 group :development do
   gem 'better_errors' # add command line in browser when errors
