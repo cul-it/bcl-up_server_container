@@ -46,7 +46,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.35'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'chromedriver-helper'
   gem 'coveralls', require: false
@@ -57,7 +57,7 @@ group :test do
   gem 'rspec-activemodel-mocks', '~> 1.0'
   gem 'rspec-its', '~> 1.1'
   gem 'rspec_junit_formatter'
-  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-rails', '~> 5.1'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock'
