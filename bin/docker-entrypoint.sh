@@ -4,7 +4,7 @@
 echo '====================================================================='
 echo '                      RUNNING ENTRY POINT'
 echo '---------------------------------------------------------------------'
-echo "From qa_server_container image: $(< ./VERSION)"
+echo "From bcl_up_server_container image: $(< ./VERSION)"
 echo '====================================================================='
 
 set -e

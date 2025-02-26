@@ -13,5 +13,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-//= require qa_server
+//= require bcl_up_server
 

@@ -1,6 +1,11 @@
-# QA Server Container and Application Orchestration
+# Blue Core Lookup (BCL-UP) Server Container and Application Orchestration
+**BCL-UP Server Container** is forked from the work of [qa_server_container](https://github.com/LD4P/qa_server_container), and is tailored for the needs of the
+[Blue Core](https://bluecore.info/) Project.
 
-This app can be installed using Docker to serve as a Questioning Authority (QA) Server for accessing external authorities.  It is part of a larger architecture supporting linked data authority access.  See [LD4P/linked_data_authorities](https://github.com/LD4P/linked_data_authorities) for more information on the full architecture.  From this app, you can send a search query and get back multiple results OR you can fetch a single term. 
+This app can be installed using Docker to serve as a Questioning Authority (QA) Server for accessing external authorities.
+It is part of a larger architecture supporting linked data authority access.
+See [LD4P/linked_data_authorities](https://github.com/LD4P/linked_data_authorities) for more information on the full architecture.
+From this app, you can send a search query and get back multiple results OR you can fetch a single term. 
 
 ## Setup
 
@@ -67,7 +72,7 @@ Validations come in two flavors...
 
 The validations can be defined in a file with a matching file name in the [scenarios directory](https://github.com/ld4l-labs/qa_server/tree/master/config/authorities/linked_data/scenarios).  For example, direct access to the AgroVoc authority, access is configured in [config/authorities/linked_data/agrovoc_direct.json](https://github.com/ld4l-labs/qa_server/blob/master/config/authorities/linked_data/agrovoc_direct.json) and the validations are defined in [config/authorities/linked_data/scenarios/agrovoc_direct_validation.yml](https://github.com/ld4l-labs/qa_server/blob/master/config/authorities/linked_data/scenarios/agrovoc_direct_validation.yml)
 
-The UI for qa_server provides access to running connection validation and accuracy tests in the Check Status navigation menu item.
+The UI for bcl_up_server provides access to running connection validation and accuracy tests in the Check Status navigation menu item.
 
 ## Non linked-data authority access
 
@@ -77,5 +82,5 @@ QA Server is based on the [Questioning Authority gem](https://github.com/samvera
 1. specifically supported external authorities (non-linked data)
 1. configurable access to linked data authorities
 
-This document addresses the use of QA Server app for access to linked data authorities.  You can reference Questioning Authorities
+This document addresses the use of BCL-UP Server app for access to linked data authorities.  You can reference Questioning Authorities
 [documentation](https://github.com/samvera/questioning_authority/blob/master/README.md) for more information on the other uses.

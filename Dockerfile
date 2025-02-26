@@ -14,7 +14,7 @@ FROM ruby:$RUBY_VERSION-alpine AS base
 ## https://docs.docker.com/build/cache/optimize/#use-cache-mounts
 RUN --mount=type=cache,target=/var/cache/apk apk add --update --no-cache \
       bash build-base gcompat git imagemagick6-dev imagemagick6-libs \
-      mariadb-dev nodejs sqlite-dev tzdata 
+      mariadb-dev nodejs sqlite-dev tzdata
 
 #################
 # bundler stage #
@@ -24,7 +24,7 @@ FROM base AS prod_bundler
 ARG BUNDLER_VERSION=2.3.7
 
 ENV APP_PATH="/app/cul-it/bcl-up_server-webapp" \
-      PATH="/app/bcl-up/qa_server-webapp:$PATH"
+      PATH="/app/bcl-up/bcl-up_server-webapp:$PATH"
 
 WORKDIR /app/cul-it/bcl-up_server-webapp
 

@@ -10,7 +10,7 @@
 /.git
 /.gitignore
 /.rspec
-/.qa_server_app
+/.bcl_up_server_app
 
 /coverage/*
 /db/*.sqlite3
