@@ -1,6 +1,11 @@
-# QA Server Container and Application Orchestration
+# Blue Core Lookup (BCL-UP) Server Container and Application Orchestration
+**BCL-UP Server Container** is forked from the work of [qa_server_container](https://github.com/LD4P/qa_server_container), and is tailored for the needs of the
+[Blue Core](https://bluecore.info/) Project.
 
-This app can be installed using Docker to serve as a Questioning Authority (QA) Server for accessing external authorities.  It is part of a larger architecture supporting linked data authority access.  See [LD4P/linked_data_authorities](https://github.com/LD4P/linked_data_authorities) for more information on the full architecture.  From this app, you can send a search query and get back multiple results OR you can fetch a single term. 
+This app can be installed using Docker to serve as a Questioning Authority (QA) Server for accessing external authorities.
+It is part of a larger architecture supporting linked data authority access.
+See [LD4P/linked_data_authorities](https://github.com/LD4P/linked_data_authorities) for more information on the full architecture.
+From this app, you can send a search query and get back multiple results OR you can fetch a single term. 
 
 ## Setup
 
@@ -77,5 +82,5 @@ QA Server is based on the [Questioning Authority gem](https://github.com/samvera
 1. specifically supported external authorities (non-linked data)
 1. configurable access to linked data authorities
 
-This document addresses the use of QA Server app for access to linked data authorities.  You can reference Questioning Authorities
+This document addresses the use of BCL-UP Server app for access to linked data authorities.  You can reference Questioning Authorities
 [documentation](https://github.com/samvera/questioning_authority/blob/master/README.md) for more information on the other uses.
