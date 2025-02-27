@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'aws-sdk-s3', '~> 1.143'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.16', require: false
 gem 'coffee-rails', '~> 5.0.0'
@@ -27,10 +28,10 @@ gem 'uglifier', '>= 1.3.0'
 ## Gems manually added to for qa and qa_server engines
 # Required gems for QA and linked data access
 # gem 'qa_server', '~> 8.0'
+gem 'bcl_up_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
 gem 'linkeddata'
 gem 'psych', '~> 5.1'
 gem 'qa', '~> 5.10'
-gem 'bcl_up_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
 
 group :development do
   gem 'better_errors' # add command line in browser when errors
