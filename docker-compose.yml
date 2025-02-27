@@ -6,16 +6,21 @@ services:
   app: &app
     build:
       context: .
-    image: cul-it/bcl-up_server:v1
-    container_name: bcl-up_server-app
+      args:
+        - RAILS_ENV=${RAILS_ENV:-development}
+    image: cul-it/bcl-up_server_dev:v1
+    container_name: bcl-up_server-app-dev
+    env_file: .env
+    environment:
+      - RAILS_ENV=${RAILS_ENV:-development}
     stdin_open: true
     tty: true
-    env_file:
-      - .env
     ports:
       - "3000:3000"
     depends_on:
       - mysql
+    volumes:
+      - .env:/app/cul-it/bcl-up_server-webapp/.env:ro
 
   mysql:
     image: mariadb:10.6 # Not specifying version causes a runtime error: "undefined method `encoding' for -0.0:BigDecimal"

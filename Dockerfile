@@ -24,9 +24,7 @@ FROM base AS prod_bundler
 ARG BUNDLER_VERSION=2.3.7
 
 ENV APP_PATH="/app/cul-it/bcl-up_server-webapp" \
-      PATH="/app/bcl-up/bcl-up_server-webapp:$PATH"
-
-WORKDIR /app/cul-it/bcl-up_server-webapp
+      PATH="/app/cul-it/bcl-up_server-webapp:$PATH"
 
 RUN gem install bundler:${BUNDLER_VERSION}
 
@@ -37,6 +35,7 @@ RUN gem update --system && bundle install && \
       find ${BUNDLE_PATH}/ -name "*.c" -delete && \
       find ${BUNDLE_PATH}/ -name "*.o" -delete
 
+WORKDIR /app/cul-it/bcl-up_server-webapp
 COPY . .
 RUN bundle exec rake assets:precompile
 
@@ -45,9 +44,12 @@ RUN bundle exec rake assets:precompile
 ###############
 
 FROM base
+ARG RAILS_ENV
 
-ENV APP_GRP="bcl-up-g" APP_USER="bcl-up-u" APP_PATH="/app/cul-it/bcl-up_server-webapp" \
-      PATH=./bin:$PATH
+ENV APP_GRP="bcl-up-g" APP_USER="bcl-up-u" \
+      APP_PATH="/app/cul-it/bcl-up_server-webapp" \
+      PATH=./bin:$PATH \
+      RAILS_ENV=${RAILS_ENV}
 
 RUN addgroup -S ${APP_GRP} && adduser -S ${APP_USER} -G ${APP_GRP}
 
@@ -60,5 +62,4 @@ WORKDIR ${APP_PATH}
 EXPOSE 3000
 
 ## Script runs when container first starts
-ENTRYPOINT [ "bin/docker-entrypoint.sh" ]
-CMD ["bundle", "exec", "puma", "-v", "-b", "tcp://0.0.0.0:3000"]
+CMD ["/app/cul-it/bcl-up_server-webapp/bin/puma.sh"]

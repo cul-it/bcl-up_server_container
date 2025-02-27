@@ -2,7 +2,7 @@
 # ! /bin/sh
 
 echo '====================================================================='
-echo '                      RUNNING ENTRY POINT'
+echo '                      RUNNING BCL UP SERVER'
 echo '---------------------------------------------------------------------'
 echo "From bcl_up_server_container image: $(< ./VERSION)"
 echo '====================================================================='
@@ -12,7 +12,7 @@ set -e
 sh ./bin/setup_env.sh
 
 # Wait for DB services
-sh ./bin/db-wait.sh
+# sh ./bin/db-wait.sh
 
 # Prepare DB (Migrate if exists; else Create db & Migrate)
 sh ./bin/db-prepare.sh
@@ -29,4 +29,4 @@ sh ./bin/db-prepare.sh
 export RAILS_LOG_TO_STDOUT="1"
 
 # Run the command defined in docker-compose.yml
-exec "$@"
+bundle exec puma -v -b tcp://0.0.0.0:3000

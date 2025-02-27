@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/cul-it/bcl-up_server
-  revision: 190b9c0af7bb23bcbe08604326df44a10ae2023f
+  revision: c9db049bdf8eaee68465d7d022df22e158aee478
   branch: main
   specs:
-    qa_server (8.0.1)
+    bcl_up_server (8.0.2)
       gruff
       rails (~> 7.0)
       sass-rails (~> 5.0)
