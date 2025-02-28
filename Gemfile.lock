@@ -180,7 +180,7 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
-    ffi (1.17.1)
+    ffi (1.17.1-arm64-darwin)
     geocoder (1.8.5)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
@@ -283,10 +283,10 @@ GEM
     matrix (0.4.2)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.8)
     minitest (5.25.4)
     msgpack (1.8.0)
     multi_json (1.15.0)
+    mutex_m (0.3.0)
     mysql2 (0.5.6)
     net-http (0.6.0)
       uri
@@ -302,8 +302,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.3)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.18.3-arm64-darwin)
       racc (~> 1.4)
     observer (0.1.2)
     parallel (1.26.3)
@@ -552,7 +551,7 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.4)
+    sqlite3 (2.6.0-arm64-darwin)
     stringio (3.1.5)
     swagger-docs (0.2.9)
       activesupport (>= 3)
@@ -609,9 +608,7 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
-  aarch64-linux-musl
-  arm64-darwin-22
-  x86_64-darwin-23
+  arm64-darwin-24
 
 DEPENDENCIES
   bcl_up_server!
@@ -633,6 +630,7 @@ DEPENDENCIES
   linkeddata
   listen (>= 3.0.5, < 3.9)
   lograge
+  mutex_m
   mysql2
   psych (~> 5.1)
   puma (~> 6.4.0, >= 5.6.4)
@@ -648,7 +646,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4.4)
+  sqlite3
   swagger-docs
   turbolinks (~> 5)
   tzinfo-data
@@ -659,7 +657,7 @@ DEPENDENCIES
   xray-rails!
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.4.2p28
 
 BUNDLED WITH
-   2.3.7
+   2.6.5
