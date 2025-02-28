@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.4.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.16', require: false
@@ -15,7 +15,8 @@ gem 'mysql2'
 gem 'puma', '>= 5.6.4', '~>6.4.0'
 gem 'rails', '~> 7.0.8'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3', '~> 1.4.4'
+gem 'sqlite3'
+gem 'mutex_m'
 gem 'swagger-docs'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
