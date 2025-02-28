@@ -35,9 +35,8 @@ echo "🧪 Running RSpec tests for bcl-up_server_container..."
 echo "🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪"
 echo ""
 
-docker exec -it $CONTAINER_NAME sh -c "cd /app/cul-it/bcl-up_server-webapp && bundle install && bundle exec rspec $@"
+docker exec -it $CONTAINER_NAME /usr/local/bin/bundle exec rspec "$@"
 
-# Find the installed bcl_up_server gem path inside the container
 GEM_PATH=$(docker exec -it $CONTAINER_NAME sh -c "bundle show bcl_up_server" 2>/dev/null | tr -d '\r' | tr -d '\n')
 
 # If the gem path is empty, exit with an error
@@ -58,12 +57,6 @@ echo "🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪�
 echo "🧪 Running tests for the bcl_up_server gem..."
 echo "🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪"
 echo ""
-
-#docker exec -it $CONTAINER_NAME sh -c "
-#  cd $GEM_PATH &&
-#  bundle install &&
-#  bundle exec rake -T | grep 'test_gem' && bundle exec rake test_gem || echo '⚠️ test_gem task not found. Running spec instead.' && bundle exec rake spec
-#"
 
 docker exec -it $CONTAINER_NAME sh -c "
   cd $GEM_PATH &&
