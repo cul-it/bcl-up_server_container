@@ -17,6 +17,7 @@ gem 'rails', '~> 7.0.8'
 gem 'sass-rails', '~> 5.0'
 gem 'sqlite3'
 gem 'mutex_m'
+gem 'drb'
 gem 'swagger-docs'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

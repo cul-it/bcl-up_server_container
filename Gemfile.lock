@@ -159,6 +159,7 @@ GEM
     dotenv-rails (3.1.7)
       dotenv (= 3.1.7)
       railties (>= 6.1)
+    drb (2.2.1)
     ebnf (2.4.0)
       htmlentities (~> 4.3)
       rdf (~> 3.3)
@@ -623,6 +624,7 @@ DEPENDENCIES
   coffee-rails (~> 5.0.0)
   coveralls
   dotenv-rails
+  drb
   factory_bot (~> 4.4)
   factory_bot_rails (~> 4.4)
   faker
