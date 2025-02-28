@@ -13,6 +13,7 @@ services:
     env_file: .env
     environment:
       - RAILS_ENV=${RAILS_ENV:-development}
+      - MAX_PERFORMANCE_CACHE_SIZE=33554432  # Set max cache size to 32MB (prevents bcl-up_server gem tests from failing)
     stdin_open: true
     tty: true
     ports:

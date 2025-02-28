@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
-
-require 'logger'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -12,7 +10,7 @@ Bundler.require(*Rails.groups)
 module BclUpServer
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    config.load_defaults 7.0
     config.web_console.development_only = false if config.respond_to?(:web_console) && !Rails.env.production?
 
     # Qa::Authorities::Discogs::GenericAuthority.discogs_key = ENV['DISCOGS_KEY']

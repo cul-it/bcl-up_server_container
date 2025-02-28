@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.4.2'
 
 gem 'aws-sdk-s3', '~> 1.143'
 # Reduces boot times through caching; required in config/boot.rb
@@ -16,7 +16,9 @@ gem 'mysql2'
 gem 'puma', '>= 5.6.4', '~>6.4.0'
 gem 'rails', '~> 7.0.8'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3', '~> 1.4.4'
+gem 'sqlite3'
+gem 'mutex_m'
+gem 'drb'
 gem 'swagger-docs'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -47,7 +49,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.35'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'chromedriver-helper'
   gem 'coveralls', require: false
@@ -58,7 +60,7 @@ group :test do
   gem 'rspec-activemodel-mocks', '~> 1.0'
   gem 'rspec-its', '~> 1.1'
   gem 'rspec_junit_formatter'
-  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-rails', '~> 5.1'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock'

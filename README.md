@@ -82,5 +82,47 @@ QA Server is based on the [Questioning Authority gem](https://github.com/samvera
 1. specifically supported external authorities (non-linked data)
 1. configurable access to linked data authorities
 
+
+## Running Tests in the Docker Container
+
+The `run_tests.sh` script allows you to run tests for both:
+
+1. The **Rails application** inside the Docker container.
+2. The **bcl_up_server gem** inside the container.
+
+This ensures that both the app and the gem are working as expected in the containerized environment.
+
+**Note:** The script assumes that the Rails app is running in a container named `bcl-up_server_container`.
+
+### 🚀 **Usage**
+
+Run the script from the project root:
+
+```sh
+./run_tests.sh
+```
+This will:
+
+* Detect the running Rails container.
+* Run RSpec tests for bcl-up_server_container.
+* Locate the bcl_up_server gem inside the container.
+* Run the gem's test suite using bundle exec rake test_gem.
+
+### 🚀 **Running a specific test file**
+You can run a specific test file for the Rails app by passing the file path:
+
+```sh
+  ./run_tests.sh spec/path/to/test_file_spec.rb
+```
+
+This will:
+* Run only the specified test file inside the container.
+* Still execute the gem's test suite afterward.
+
+### 🔴 **Handling Errors**
+* If no running Rails container is found, the script will exit with an error.
+* If the bcl_up_server gem is not found, the script will exit with an error.
+* If the test_gem task is missing, the script will fail instead of falling back to other tasks.
+
 This document addresses the use of BCL-UP Server app for access to linked data authorities.  You can reference Questioning Authorities
 [documentation](https://github.com/samvera/questioning_authority/blob/master/README.md) for more information on the other uses.

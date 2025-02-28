@@ -9,14 +9,12 @@
 /.env*
 /.git
 /.gitignore
-/.rspec
 /.bcl_up_server_app
 
 /coverage/*
 /db/*.sqlite3
 /log/*.log
 /public/assets
-/spec/*
 /tmp/*
 /vendor/*
 

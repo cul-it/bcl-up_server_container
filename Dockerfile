@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.1.2
+ARG RUBY_VERSION=3.4.2
 FROM ruby:$RUBY_VERSION-alpine AS base
 
 ## Base stage with all necessary libraries
@@ -13,9 +13,8 @@ FROM ruby:$RUBY_VERSION-alpine AS base
 ## - gcompat: to avoid architecture-specific incompatibitilies
 ## https://docs.docker.com/build/cache/optimize/#use-cache-mounts
 RUN --mount=type=cache,target=/var/cache/apk apk add --update --no-cache \
-      bash build-base gcompat git imagemagick6-dev imagemagick6-libs \
-      mariadb-dev nodejs sqlite-dev tzdata
-
+      bash build-base gcompat git imagemagick imagemagick-dev \
+      mariadb-dev nodejs sqlite-dev tzdata libffi-dev yaml-dev
 #################
 # bundler stage #
 #################
