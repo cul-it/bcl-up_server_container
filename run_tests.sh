@@ -22,9 +22,8 @@ if [ -z "$CONTAINER_NAME" ]; then
   echo ""
   exit 1
 fi
-echo "🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢"
+echo ""
 echo "🟢 Running RSpec tests inside the container: $CONTAINER_NAME"
-echo "🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢"
 echo ""
 # Ensure Bundler is available
 echo "🚀 Checking if Bundler is installed..."
@@ -49,9 +48,9 @@ if [ -z "$GEM_PATH" ]; then
   echo ""
   exit 1
 fi
-echo "🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢"
+
+echo ""
 echo "🟢 Found bcl_up_server gem at: $GEM_PATH"
-echo "🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢"
 echo ""
 
 # Run tests for the bcl_up_server gem
@@ -60,10 +59,16 @@ echo "🧪 Running tests for the bcl_up_server gem..."
 echo "🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪🧪"
 echo ""
 
+#docker exec -it $CONTAINER_NAME sh -c "
+#  cd $GEM_PATH &&
+#  bundle install &&
+#  bundle exec rake -T | grep 'test_gem' && bundle exec rake test_gem || echo '⚠️ test_gem task not found. Running spec instead.' && bundle exec rake spec
+#"
+
 docker exec -it $CONTAINER_NAME sh -c "
   cd $GEM_PATH &&
   bundle install &&
-  bundle exec rake -T | grep 'test_gem' && bundle exec rake test_gem || echo '⚠️ test_gem task not found. Running spec instead.' && bundle exec rake spec
+  bundle exec rake test_gem
 "
 echo ""
 echo ""
