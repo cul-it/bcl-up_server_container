@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/cul-it/bcl-up_server
-  revision: c9db049bdf8eaee68465d7d022df22e158aee478
+  revision: 3d08d0ee507072458aa53addfb5cd894a7461fda
   branch: main
   specs:
-    bcl_up_server (8.0.2)
+    bcl_up_server (1.0.0)
       gruff
       rails (~> 7.0)
       sass-rails (~> 5.0)
@@ -302,7 +302,7 @@ GEM
     matrix (0.4.2)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    minitest (5.25.4)
+    minitest (5.25.5)
     msgpack (1.8.0)
     multi_json (1.15.0)
     mutex_m (0.3.0)
@@ -321,7 +321,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.3-arm64-darwin)
+    nokogiri (1.18.7-arm64-darwin)
       racc (~> 1.4)
     observer (0.1.2)
     parallel (1.26.3)
@@ -329,7 +329,7 @@ GEM
       ast (~> 2.4.1)
       racc
     parslet (2.0.0)
-    pkg-config (1.5.9)
+    pkg-config (1.6.0)
     psych (5.2.3)
       date
       stringio
@@ -346,7 +346,7 @@ GEM
       rails (>= 5.0, < 8.1)
       rdf
     racc (1.8.1)
-    rack (2.2.11)
+    rack (2.2.13)
     rack-test (2.2.0)
       rack (>= 1.3)
     rails (7.0.8.7)
@@ -681,4 +681,4 @@ RUBY VERSION
    ruby 3.4.2p28
 
 BUNDLED WITH
-   2.6.5
+   2.6.2
