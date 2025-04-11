@@ -41,7 +41,7 @@ pipeline {
                 }
                 script {
                     if ("${SLACK_MESSAGES}" == "true") {
-                        slackSend channel: "#digcoll", color: "#439FE0", message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                        slackSend channel: "#bluecore", color: "#439FE0", message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
                     }
                 }
             }
@@ -128,7 +128,7 @@ pipeline {
             sh 'bcl-up_server_container/jenkins/report-status-to-github.sh success'
             script {
                 if ("${SLACK_MESSAGES}" == "true") {
-                    slackSend channel: "#digcoll", color: "#00ff00", message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                    slackSend channel: "#bluecore", color: "#00ff00", message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
                 }
             }
         }
@@ -143,7 +143,7 @@ pipeline {
             sh 'bcl-up_server_container/jenkins/report-status-to-github.sh failure'
             script {
                 if ("${SLACK_MESSAGES}" == "true") {
-                    slackSend channel: "#digcoll", color: "#ff0000", message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                    slackSend channel: "#bluecore", color: "#ff0000", message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
                 }
             }
         }
