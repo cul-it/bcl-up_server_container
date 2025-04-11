@@ -1,6 +1,7 @@
 #!/bin/bash
 set +x
-source ../scripts/log_utils.sh
+source "scripts/log_utils.sh"
+
 source jenkins/chromedriver-verifier.sh
 
 print_header "Executing environment.sh"
