@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../scripts/log_utils.sh
+source "scripts/log_utils.sh"
 #######################################################################################################
 ## Automatically checks for the correct version of Chromedriver and installs if necessary.           ##
 ## change the CHROMEDRIVER_VERSION_EXPECTED and CHROMEDRIVER_URL as needed to install a new version. ##
