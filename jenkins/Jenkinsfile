@@ -36,7 +36,7 @@ pipeline {
                         set +x
                         source scripts/log_utils.sh
                         print_jenkins_stage "Jenkins Stage: Set up and run bundler (prelude.sh)"
-                        bcl-up_server_container/jenkins/prelude.sh
+                        jenkins/prelude.sh
                     '''
                 }
                 script {
