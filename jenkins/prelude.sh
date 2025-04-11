@@ -2,7 +2,7 @@
 # bundler for automated tests
 source "scripts/log_utils.sh"
 set -e
-cd bcl-up_server_container
+#cd bcl-up_server_container
 source jenkins/environment.sh
 
 print_header "Executing prelude.sh"
