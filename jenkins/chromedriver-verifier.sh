@@ -5,12 +5,12 @@ source "scripts/log_utils.sh"
 ## change the CHROMEDRIVER_VERSION_EXPECTED and CHROMEDRIVER_URL as needed to install a new version. ##
 #######################################################################################################
 
-print_header "Executing chromedriver-verifier.sh"
+print_header "💻 Executing chromedriver-verifier.sh"
 
 CHROMEDRIVER_VERSION_EXPECTED="135.0.7049.52"
 CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${CHROMEDRIVER_VERSION_EXPECTED}/linux64/chromedriver-linux64.zip"
 INSTALL_PATH="/usr/lib64/chromium-browser/chromedriver"
-print_msg "Checking for ChromeDriver Version: ${CHROMEDRIVER_VERSION_EXPECTED} at ${INSTALL_PATH}"
+print_msg "🔎  Checking for ChromeDriver Version: ${CHROMEDRIVER_VERSION_EXPECTED} at ${INSTALL_PATH}"
 
 # Check installed version
 CURRENT_VERSION=$($INSTALL_PATH --version 2>/dev/null | awk '{print $2}' || echo "none")

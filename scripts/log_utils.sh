@@ -19,24 +19,66 @@
 # No Color  | \033[0m     |
 # =========================
 
+#print_header() {
+#  local MAGENTA='\033[0;35m'
+#  local BLUE='\033[0;34m'
+#  local NC='\033[0m' # No Color
+#  echo " "
+#  echo -e "${BLUE}#################################################${NC}"
+#  echo -e "${MAGENTA}$1${NC}"
+#  echo -e "${BLUE}#################################################${NC}"
+#}
+
 print_header() {
-  local MAGENTA='\033[0;35m'
+  local NC='\033[0m'
   local BLUE='\033[0;34m'
-  local NC='\033[0m' # No Color
+  local MAGENTA='\033[0;35m'
+  local line_length=70
+
+  local message="$1"
+  local underline="$2" # optional, e.g., "From image: v2.0.0"
+
   echo " "
-  echo -e "${BLUE}#################################################${NC}"
-  echo -e "${MAGENTA}$1${NC}"
-  echo -e "${BLUE}#################################################${NC}"
+  echo -e "${BLUE}$(printf '%*s\n' $line_length '' | tr ' ' '=')${NC}"
+  printf "%s\n" "$(echo -e "${MAGENTA}$(printf "%*s" $(( (${#message} + $line_length) / 2)) "$message")${NC}")"
+
+  if [ -n "$underline" ]; then
+    echo -e "${BLUE}---------------------------------------------------------------------${NC}"
+    printf "%s\n" "$(echo -e "${MAGENTA}$(printf "%*s" $(( (${#underline} + $line_length) / 2)) "$underline")${NC}")"
+  fi
+
+  echo -e "${BLUE}$(printf '%*s\n' $line_length '' | tr ' ' '=')${NC}"
 }
 
 print_jenkins_stage() {
+  local NC='\033[0m'
   local BOLD_CYAN='\033[1;36m'
-  local NC='\033[0m' # No Color
+  local MAGENTA='\033[0;35m'
+  local line_length=70
+
+  local message="$1"
+  local underline="$2" # optional, e.g., "From image: v2.0.0"
+
   echo " "
-  echo -e "${BOLD_CYAN}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%${NC}"
-  echo -e "${BOLD_CYAN}$1${NC}"
-  echo -e "${BOLD_CYAN}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%${NC}"
+  echo -e "${BOLD_CYAN}$(printf '%*s\n' $line_length '' | tr ' ' '=')${NC}"
+  printf "%s\n" "$(echo -e "${MAGENTA}$(printf "%*s" $(( (${#message} + $line_length) / 2)) "$message")${NC}")"
+
+  if [ -n "$underline" ]; then
+    echo -e "${BOLD_CYAN}---------------------------------------------------------------------${NC}"
+    printf "%s\n" "$(echo -e "${MAGENTA}$(printf "%*s" $(( (${#underline} + $line_length) / 2)) "$underline")${NC}")"
+  fi
+
+  echo -e "${BOLD_CYAN}$(printf '%*s\n' $line_length '' | tr ' ' '=')${NC}"
 }
+
+#print_jenkins_stage() {
+#  local BOLD_CYAN='\033[1;36m'
+#  local NC='\033[0m' # No Color
+#  echo " "
+#  echo -e "${BOLD_CYAN}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%${NC}"
+#  echo -e "${BOLD_CYAN}$1${NC}"
+#  echo -e "${BOLD_CYAN}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%${NC}"
+#}
 
 print_msg() {
   local MAGENTA='\033[0;35m'
