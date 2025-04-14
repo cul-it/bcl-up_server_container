@@ -15,10 +15,11 @@ FROM ruby:$RUBY_VERSION-alpine AS base
 RUN --mount=type=cache,target=/var/cache/apk apk add --update --no-cache \
       bash build-base gcompat git imagemagick imagemagick-dev \
       mariadb-dev nodejs sqlite-dev tzdata libffi-dev yaml-dev
-#################
+
+
+################################################################################
 # bundler stage #
 #################
-
 FROM base AS prod_bundler
 ARG BUNDLER_VERSION=2.3.7
 
@@ -37,16 +38,16 @@ RUN gem update --system && bundle install && \
 WORKDIR /app/cul-it/bcl-up_server-webapp
 COPY . .
 
-
-#RUN bundle exec rake assets:precompile
+#RUN bundle exec rake assets:precompile unless PRECOMPILE_ASSETS is set to false
 ARG PRECOMPILE_ASSETS=true
 RUN if [ "$PRECOMPILE_ASSETS" = "true" ]; then \
   bundle exec rake assets:precompile; \
   fi
-###############
+
+
+################################################################################
 # final stage #
 ###############
-
 FROM base
 ARG RAILS_ENV
 
