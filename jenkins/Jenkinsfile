@@ -74,22 +74,38 @@ pipeline {
             }
         }
 
-//         stage('cucumber tests') {
-//             steps {
-//                 timeout(60) {
-//                     wrap([$class: 'Xvfb', installationName: 'default', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 0, installationName: 'default', parallelBuild: true, screen: '1024x758x24', timeout: 25]) {
-//                         ansiColor('xterm') {
-//                             sh '''
-//                                 set +x
-//                                 source scripts/log_utils.sh
-//                                 print_jenkins_stage "Jenkins Stage: cucumber tests"
-//                                 time bcl-up_server_container/jenkins/cucumber-features.sh
-//                             '''
-//                         }
-//                     }
-//                 }
-//             }
-//         }
+        stage('rubocop') {
+            steps {
+                ansiColor('xterm') {
+                    sh '''
+                        set +x
+                        source scripts/log_utils.sh
+                        print_jenkins_stage "Jenkins Stage: RuboCop"
+                        jenkins/rubocop-check.sh
+                    '''
+                }
+            }
+        }
+
+        // ##################################################################
+        // ## Cucumber Test Stub: Maybe add cucumber tests later if needed ##
+        // ##################################################################
+        // stage('cucumber tests') {
+        //     steps {
+        //         timeout(60) {
+        //             wrap([$class: 'Xvfb', installationName: 'default', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 0, installationName: 'default', parallelBuild: true, screen: '1024x758x24', timeout: 25]) {
+        //                 ansiColor('xterm') {
+        //                     sh '''
+        //                         set +x
+        //                         source scripts/log_utils.sh
+        //                         print_jenkins_stage "Jenkins Stage: cucumber tests"
+        //                         time bcl-up_server_container/jenkins/cucumber-features.sh
+        //                     '''
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Publish Coverage') {
             steps {
