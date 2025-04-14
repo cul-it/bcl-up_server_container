@@ -20,5 +20,23 @@ print_msg "Ruby: $RUBYVERSION"
 GEM_HOME="/usr/local/rvm/gems/$RUBYVERSION"
 rvm use "$RUBYVERSION"
 
-# Copy environment file
-cp /cul/data/jenkins/environments/bcl-up_server_container.env .env
+## Copy environment file
+#cp /cul/data/jenkins/environments/bcl-up_server_container.env .env
+#################################################################
+
+# Copy environment file, or create one if it doesn't exist
+ENV_PATH="/cul/data/jenkins/environments/bcl-up_server_container.env"
+
+if [ -f "$ENV_PATH" ]; then
+  print_msg "✅ Found env file at $ENV_PATH"
+  cp "$ENV_PATH" .env
+else
+  print_msg "⚠️  Missing $ENV_PATH, creating fallback $ENV_PATH and local .env"
+  cat <<EOF | tee "$ENV_PATH" .env > /dev/null
+MYSQL_ROOT_PASSWORD=jenkins_secret
+MYSQL_DATABASE_NAME_PREFIX=jenkins_bclup
+MYSQL_USER=jenkins_bclup_test
+MYSQL_PASSWORD=jenkins_secret
+RAILS_ENV=test
+EOF
+fi
