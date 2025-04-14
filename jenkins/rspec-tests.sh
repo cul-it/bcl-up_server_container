@@ -2,7 +2,7 @@
 set -e
 set +x
 source scripts/log_utils.sh
-cd bcl-up_server_container
+#cd bcl-up_server_container
 source jenkins/environment.sh
 
 print_header "Executing rspec-tests.sh"
