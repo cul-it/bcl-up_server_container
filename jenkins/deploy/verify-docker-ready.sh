@@ -1,5 +1,8 @@
 #!/bin/bash
 source "scripts/log_utils.sh"
+################################################################
+## Script used to ensure docker is up and running in Jenkins  ##
+################################################################
 
 print_header "🛠 Checking Docker status and permissions"
 

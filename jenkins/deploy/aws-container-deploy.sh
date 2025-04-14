@@ -1,4 +1,11 @@
 #!/bin/bash
+#############################
+## TODO: Work in Progress  ##
+########################################################################
+## Currently a stub for the deploy script pattern already used. Will  ##
+## implement in future feature branch for deploying to ECS.           ##
+########################################################################
+
 source "scripts/log_utils.sh"
 
 print_header "AWS Environment Settings"
