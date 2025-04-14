@@ -17,6 +17,9 @@ gem install bundler -v 2.4.10 --no-document
 # Ensure the PATH includes the directory where Bundler is installed
 export PATH=$GEM_HOME/bin:$PATH
 
+# Force native gem compilation (avoid incompatible precompiled binaries)
+bundle config set force_ruby_platform true
+
 # Verify Bundler installation
 print_msg "which bundle: $(which bundle)"
 print_msg "bundle --version: $(bundle --version)"
