@@ -19,6 +19,8 @@ export PATH=$GEM_HOME/bin:$PATH
 
 # Force native gem compilation (avoid incompatible precompiled binaries)
 bundle config set force_ruby_platform true
+# Force use sqlite version in jenkins
+bundle config build.sqlite3 --with-sqlite3-dir=/usr
 
 # Verify Bundler installation
 print_msg "which bundle: $(which bundle)"

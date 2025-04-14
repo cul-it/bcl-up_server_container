@@ -16,7 +16,9 @@ gem 'mysql2'
 gem 'puma', '>= 5.6.4', '~>6.4.0'
 gem 'rails', '~> 7.0.8'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3'
+# gem 'sqlite3'
+gem "sqlite3", "~> 1.6"
+
 gem 'mutex_m'
 gem 'drb'
 gem 'swagger-docs'
