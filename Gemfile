@@ -67,6 +67,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock'
+
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem "simplecov", :require => false
+  gem "simplecov-rcov", :require => false
 end
 
 group :development, :integration, :test do
