@@ -41,8 +41,3 @@ MYSQL_PASSWORD=jenkins_secret
 RAILS_ENV=test
 EOF
 fi
-
-# Install ImageMagick and dependencies required for rmagick
-print_msg "⬇️ Installing ImageMagick dependencies for RMagick"
-sudo dnf install -y ImageMagick ImageMagick-devel pkgconfig
-
