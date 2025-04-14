@@ -15,15 +15,10 @@ print_msg "PATH: $PATH"
 
 # Load RVM and use correct Ruby version
 source /etc/profile.d/rvm.sh
-#RUBYVERSION=ruby-3.3.7
 RUBYVERSION=ruby-3.4.2
 print_msg "Ruby: $RUBYVERSION"
 GEM_HOME="/usr/local/rvm/gems/$RUBYVERSION"
 rvm use "$RUBYVERSION"
-
-## Copy environment file
-#cp /cul/data/jenkins/environments/bcl-up_server_container.env .env
-#################################################################
 
 # Copy environment file, or create one if it doesn't exist
 ENV_PATH="/cul/data/jenkins/environments/bcl-up_server_container.env"
