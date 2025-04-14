@@ -53,7 +53,10 @@ end
 group :test do
   gem 'capybara', '>= 3.35'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
+  gem 'webdrivers'
+
+
   gem 'coveralls', require: false
   gem 'factory_bot', '~> 4.4'
   gem 'factory_bot_rails', '~> 4.4', require: false
