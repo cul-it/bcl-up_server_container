@@ -107,7 +107,7 @@ pipeline {
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    reportDir: "${WORKSPACE}/bcl-up_server_container/coverage/rcov",
+                    reportDir: "${WORKSPACE}/coverage/rcov",
                     reportFiles: 'index.html',
                     reportName: 'Code_Coverage_Report',
                     reportTitles: 'BCL-UPCornell'
