@@ -19,8 +19,8 @@ gem 'sass-rails', '~> 5.0'
 # gem 'sqlite3'
 gem "sqlite3", "~> 1.6"
 
-gem 'mutex_m'
 gem 'drb'
+gem 'mutex_m'
 gem 'swagger-docs'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -69,8 +69,8 @@ group :test do
   gem 'webmock'
 
   # Easy installation and use of web drivers to run system tests with browsers
-  gem "simplecov", :require => false
-  gem "simplecov-rcov", :require => false
+  gem "simplecov", require: false
+  gem "simplecov-rcov", require: false
 end
 
 group :development, :integration, :test do

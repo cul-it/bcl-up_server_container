@@ -36,8 +36,13 @@ RUN gem update --system && bundle install && \
 
 WORKDIR /app/cul-it/bcl-up_server-webapp
 COPY . .
-RUN bundle exec rake assets:precompile
 
+
+#RUN bundle exec rake assets:precompile
+ARG PRECOMPILE_ASSETS=true
+RUN if [ "$PRECOMPILE_ASSETS" = "true" ]; then \
+  bundle exec rake assets:precompile; \
+  fi
 ###############
 # final stage #
 ###############

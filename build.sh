@@ -10,4 +10,5 @@ echo "🛠️ Updating bcl_up_server gem from Git..."
 bundle update bcl_up_server
 
 echo "🐳 Building Docker image..."
-docker compose build
+#docker compose build
+docker compose build --build-arg PRECOMPILE_ASSETS=false
