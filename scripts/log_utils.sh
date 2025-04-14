@@ -19,16 +19,6 @@
 # No Color  | \033[0m     |
 # =========================
 
-#print_header() {
-#  local MAGENTA='\033[0;35m'
-#  local BLUE='\033[0;34m'
-#  local NC='\033[0m' # No Color
-#  echo " "
-#  echo -e "${BLUE}#################################################${NC}"
-#  echo -e "${MAGENTA}$1${NC}"
-#  echo -e "${BLUE}#################################################${NC}"
-#}
-
 print_header() {
   local NC='\033[0m'
   local BLUE='\033[0;34m'
