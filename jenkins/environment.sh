@@ -8,7 +8,6 @@ print_header "Executing environment.sh"
 
 print_msg "Branch: $(git rev-parse --abbrev-ref HEAD)"
 print_msg "JENKINS_HOME: $JENKINS_HOME"
-#print_msg "Solr: $SOLR_URL"
 
 # Add project bin directory to PATH
 PATH=$PWD/bin:$PATH
