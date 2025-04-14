@@ -44,6 +44,5 @@ fi
 
 # Install ImageMagick and dependencies required for rmagick
 print_msg "⬇️ Installing ImageMagick dependencies for RMagick"
-#sudo dnf install -y ImageMagick ImageMagick-devel pkgconfig
-dnf install -y ImageMagick ImageMagick-devel pkgconfig
+sudo dnf install -y ImageMagick ImageMagick-devel pkgconfig
 
