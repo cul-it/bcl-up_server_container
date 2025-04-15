@@ -22,6 +22,7 @@ services:
       - mysql
     volumes:
       - .env:/app/cul-it/bcl-up_server-webapp/.env:ro
+      - .:/app/cul-it/bcl-up_server-webapp
 
   mysql:
     image: mariadb:10.6 # Not specifying version causes a runtime error: "undefined method `encoding' for -0.0:BigDecimal"

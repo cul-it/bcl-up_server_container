@@ -16,9 +16,11 @@ gem 'mysql2'
 gem 'puma', '>= 5.6.4', '~>6.4.0'
 gem 'rails', '~> 7.0.8'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3'
-gem 'mutex_m'
+# gem 'sqlite3'
+gem "sqlite3", "~> 1.6"
+
 gem 'drb'
+gem 'mutex_m'
 gem 'swagger-docs'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -51,7 +53,8 @@ end
 group :test do
   gem 'capybara', '>= 3.35'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
+
   gem 'coveralls', require: false
   gem 'factory_bot', '~> 4.4'
   gem 'factory_bot_rails', '~> 4.4', require: false
@@ -64,6 +67,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.4'
   gem 'webmock'
+
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem "simplecov", require: false
+  gem "simplecov-rcov", require: false
 end
 
 group :development, :integration, :test do

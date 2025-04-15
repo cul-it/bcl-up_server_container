@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 # ! /bin/sh
+source "scripts/log_utils.sh"
 
-echo '====================================================================='
-echo '                      RUNNING ENTRY POINT'
-echo '---------------------------------------------------------------------'
-echo "From bcl_up_server_container image: $(< ./VERSION)"
-echo '====================================================================='
+print_header "RUNNING BCL UP SERVER" "From bcl_up_server_container image: $(< ./VERSION)"
 
 set -e
 
