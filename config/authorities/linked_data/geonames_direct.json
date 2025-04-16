@@ -6,16 +6,16 @@
   "term": {
     "url": {
       "@context": "http://www.w3.org/ns/hydra/context.jsonld",
-      "@type":    "IriTemplate",
+      "@type": "IriTemplate",
       "template": "{term_uri}",
       "variableRepresentation": "BasicRepresentation",
       "mapping": [
         {
-          "@type":    "IriTemplateMapping",
+          "@type": "IriTemplateMapping",
           "variable": "term_uri",
           "property": "hydra:freetextQuery",
           "required": true,
-          "encode":   false
+          "encode": false
         }
       ]
     },
@@ -24,17 +24,17 @@
     },
     "term_id": "URI",
     "results": {
-      "label_ldpath":    "geonames:name ::xsd:string",
+      "label_ldpath": "geonames:name ::xsd:string",
       "altlabel_ldpath": "geonames:countryCode ::xsd:string",
-      "broader_ldpath":  "geonames:parentFeature ::xsd:string",
-      "sameas_ldpath":   "rdfs:seeAlso ::xsd:anyURI"
+      "broader_ldpath": "geonames:parentFeature ::xsd:string",
+      "sameas_ldpath": "rdfs:seeAlso ::xsd:anyURI"
     }
   },
   "search": {
     "url": {
       "@context": "http://www.w3.org/ns/hydra/context.jsonld",
       "@type": "IriTemplate",
-      "template": "http://api.geonames.org/search?q={query}&maxRows={maximumRecords}&{?username}&type=rdf",
+      "template": "http://api.geonames.org/search?q={query}&maxRows={maxRecords}&{?username}&type=rdf",
       "variableRepresentation": "BasicRepresentation",
       "mapping": [
         {
@@ -53,7 +53,7 @@
         },
         {
           "@type": "IriTemplateMapping",
-          "variable": "maximumRecords",
+          "variable": "maxRecords",
           "property": "hydra:freetextQuery",
           "required": false,
           "default": "10"
@@ -61,13 +61,15 @@
       ]
     },
     "qa_replacement_patterns": {
-      "query":   "query"
+      "query": "query"
     },
-    "language": ["en"],
+    "language": [
+      "en"
+    ],
     "results": {
-      "label_ldpath":    "geonames:name ::xsd:string",
+      "label_ldpath": "geonames:name ::xsd:string",
       "altlabel_ldpath": "geonames:countryCode ::xsd:string",
-      "sort_ldpath":     "geonames:name ::xsd:string"
+      "sort_ldpath": "geonames:name ::xsd:string"
     }
   }
 }
