@@ -9,7 +9,7 @@ services:
       args:
         - RAILS_ENV=production
     image: cul-it/bcl-up
-    container_name: bcl-up_server
+    container_name: bcl-up
     environment:
       - RAILS_ENV=production
     stdin_open: true

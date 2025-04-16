@@ -8,8 +8,8 @@ services:
       context: .
       args:
         - RAILS_ENV=integration
-    image: cul-it/bcl-up_server-int
-    container_name: bcl-up_server-app-int
+    image: cul-it/bcl-up-int
+    container_name: bcl-up-int
     environment:
       - RAILS_ENV=integration
     stdin_open: true
