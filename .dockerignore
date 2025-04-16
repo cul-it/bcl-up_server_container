@@ -2,6 +2,7 @@
 /node_modules
 /_*/
 
+/.bcl_up_server_app
 /.bundle
 /.circleci
 /.dockerignore
@@ -9,7 +10,8 @@
 /.env*
 /.git
 /.gitignore
-/.bcl_up_server_app
+/.idea
+/.ruby-lsp
 
 /coverage/*
 /db/*.sqlite3
