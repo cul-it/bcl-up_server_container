@@ -24,7 +24,7 @@ bundle install
 
 # Set the environment for the test database
 print_msg "💠 Setting environment for the test database"
-bin/rails db:environment:set RAILS_ENV=${RAILS_ENV}
+bundle exec bin/rails db:environment:set RAILS_ENV=${RAILS_ENV}
 
 # Conditionally delete and recreate the database
 if [ "${DELETE_DATABASE}" = "true" ]; then
