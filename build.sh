@@ -27,16 +27,18 @@ print_msg "🛠️  Updating bcl_up_server gem from Git..."
 bundle update bcl_up_server
 
 if [ ${environment} == "development" ]; then
-  compose_file="docker-compose.yml"
+  export compose_file="docker-compose.yml"
 elif [ ${environment} == "integration" ]; then
-  compose_file="docker-compose-int.yml"
+  export compose_file="docker-compose-int.yml"
 elif [ ${environment} == "production" ]; then
-  compose_file="docker-compose-prod.yml"
+  export compose_file="docker-compose-prod.yml"
 else
   print_error "❌ Invalid environment specified. Use 'development', 'integration' , or 'production'."
   exit 1
 fi
 
 print_msg "🐳  Building Docker image with the following command..."
-print_msg "🐳  docker compose build --build-arg PRECOMPILE_ASSETS=\"${precompile_assets}\" --build-arg RAILS_ENV=\"${environment}\""
-docker compose build --build-arg PRECOMPILE_ASSETS="${precompile_assets}" --build-arg RAILS_ENV="${environment}"
+print_msg "🐳  docker compose -f ${compose_file} build --build-arg PRECOMPILE_ASSETS=${precompile_assets} --build-arg RAILS_ENV=${environment}"
+docker compose -f ${compose_file} build --build-arg PRECOMPILE_ASSETS=${precompile_assets} --build-arg RAILS_ENV=${environment}
+unset compose_file
+print_msg "🐳  Docker image built successfully."
