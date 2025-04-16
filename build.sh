@@ -33,7 +33,7 @@ elif [ ${environment} == "integration" ]; then
 elif [ ${environment} == "production" ]; then
   export compose_file="docker-compose-prod.yml"
 else
-  print_error "❌ Invalid environment specified. Use 'development', 'integration' , or 'production'."
+  print_error "❌ Invalid environment specified. Use 'development', 'integration', or 'production'."
   exit 1
 fi
 
