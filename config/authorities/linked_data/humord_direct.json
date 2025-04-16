@@ -39,7 +39,7 @@
     "url": {
       "@context": "http://www.w3.org/ns/hydra/context.jsonld",
       "@type": "IriTemplate",
-      "template": "https://data.ub.uio.no/skosmos/rest/v1/humord/search?{?lang}&labellang={lang}&{?maxhits}&{?type}&{?query}*",
+      "template": "https://data.ub.uio.no/skosmos/rest/v1/humord/search?{?lang}&labellang={lang}&maxhits={maxRecords}&{?type}&{?query}*",
       "variableRepresentation": "BasicRepresentation",
       "mapping": [
         {
@@ -58,7 +58,7 @@
         },
         {
           "@type": "IriTemplateMapping",
-          "variable": "maxhits",
+          "variable": "maxRecords",
           "property": "hydra:freetextQuery",
           "required": false,
           "default": "20"

@@ -1,20 +1,19 @@
 {
   "QA_CONFIG_VERSION": "2.1",
-  "prefixes": {
-  },
+  "prefixes": {},
   "term": {
     "url": {
       "@context": "http://www.w3.org/ns/hydra/context.jsonld",
-      "@type":    "IriTemplate",
-      "template": "http://agrovoc.uniroma2.it/agrovoc/rest/v1/data/?uri={term_uri}",
+      "@type": "IriTemplate",
+      "template": "https://agrovoc.fao.org/browse/rest/v1/data/?uri={term_uri}",
       "variableRepresentation": "BasicRepresentation",
       "mapping": [
         {
-          "@type":    "IriTemplateMapping",
+          "@type": "IriTemplateMapping",
           "variable": "term_uri",
           "property": "hydra:freetextQuery",
           "required": true,
-          "encode":   true
+          "encode": true
         }
       ]
     },
@@ -22,42 +21,44 @@
       "term_id": "term_uri"
     },
     "term_id": "URI",
-    "language": ["en"],
+    "language": [
+      "en"
+    ],
     "results": {
-      "label_ldpath":    "skos:prefLabel",
+      "label_ldpath": "skos:prefLabel",
       "altlabel_ldpath": "skos:altLabel",
-      "broader_ldpath":  "skos:broader",
+      "broader_ldpath": "skos:broader",
       "narrower_ldpath": "skos:narrower",
-      "sameas_ldpath":   "skos:exactMatch"
+      "sameas_ldpath": "skos:exactMatch"
     }
   },
   "search": {
     "url": {
       "@context": "http://www.w3.org/ns/hydra/context.jsonld",
-      "@type":    "IriTemplate",
-      "template": "http://agrovoc.uniroma2.it/agrovoc/rest/v1/search/?query=*{query}*&{?lang}&maxhits={maxRecords}",
+      "@type": "IriTemplate",
+      "template": "https://agrovoc.fao.org/browse/rest/v1/search/?query=*{query}*&{?lang}&maxhits={maxRecords}",
       "variableRepresentation": "BasicRepresentation",
       "mapping": [
         {
-          "@type":    "IriTemplateMapping",
+          "@type": "IriTemplateMapping",
           "variable": "query",
           "property": "hydra:freetextQuery",
           "required": true,
           "encode": true
         },
         {
-          "@type":    "IriTemplateMapping",
+          "@type": "IriTemplateMapping",
           "variable": "lang",
           "property": "hydra:freetextQuery",
           "required": false,
-          "default":  "en"
+          "default": "en"
         },
         {
-          "@type":    "IriTemplateMapping",
+          "@type": "IriTemplateMapping",
           "variable": "maxRecords",
           "property": "hydra:freetextQuery",
           "required": false,
-          "default":  "20"
+          "default": "20"
         }
       ]
     },
@@ -65,8 +66,8 @@
       "query": "query"
     },
     "results": {
-      "label_ldpath":    "skos:prefLabel",
-      "sort_ldpath":     "skos:prefLabel"
+      "label_ldpath": "skos:prefLabel",
+      "sort_ldpath": "skos:prefLabel"
     }
   }
 }
