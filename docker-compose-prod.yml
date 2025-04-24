@@ -1,0 +1,18 @@
+# rails _5.2.4.3_ new .bcl_up_server_app --database=mysql
+# rm .bcl_up_server_app/config/database.yml # use ENV for database configuration
+# docker compose build
+# docker compose up app
+services:
+  app: &app
+    build:
+      context: .
+      args:
+        - RAILS_ENV=production
+    image: cul-it/bcl-up
+    container_name: bcl-up
+    environment:
+      - RAILS_ENV=production
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"

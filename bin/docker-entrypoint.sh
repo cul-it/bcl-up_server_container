@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 # ! /bin/sh
+source "scripts/log_utils.sh"
 
-echo '====================================================================='
-echo '                      RUNNING ENTRY POINT'
-echo '---------------------------------------------------------------------'
-echo "From qa_server_container image: $(< ./VERSION)"
-echo '====================================================================='
+print_header "RUNNING BCL UP SERVER" "From bcl_up_server_container image: $(< ./VERSION)"
 
 set -e
+
+sh ./bin/setup_env.sh
 
 # Wait for DB services
 sh ./bin/db-wait.sh
@@ -23,6 +22,8 @@ sh ./bin/db-prepare.sh
 
 # Remove a potentially pre-existing server.pid for Rails
 # rm -f /app/tmp/pids/server.pid
+
+export RAILS_LOG_TO_STDOUT="1"
 
 # Run the command defined in docker-compose.yml
 exec "$@"

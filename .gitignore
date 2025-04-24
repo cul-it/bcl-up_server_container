@@ -35,8 +35,8 @@
 /public/documents
 /public/assets
 /public/sitemap.xml.gz
-/public/qa_server_container/charts/*
-!/public/qa_server_container/charts/.keep
+/public/bcl_up_server_container/charts/*
+!/public/bcl_up_server_container/charts/.keep
 
 # ignore renderer file
 # shows the template being rendered in the html source
@@ -64,7 +64,7 @@ reports
 !.env.circleci
 
 # Ignore generated gruff graphs
-app/assets/images/qa_server/charts/*.png
+app/assets/images/bcl_up_server/charts/*.png
 
 .data
 .generators

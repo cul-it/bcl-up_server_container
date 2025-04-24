@@ -12,21 +12,21 @@ default: &default
 
 development:
   <<: *default
-  database: qa_server_development
+  database: bcl_up_server_development
 
 test:
   <<: *default
-  database: qa_server_test
+  database: bcl_up_server_test
 
 integration:
   <<: *default
-  database: qa_server_integration
+  database: bcl_up_server_integration
 
 staging:
   <<: *default
-  database: qa_server_staging
+  database: bcl_up_server_staging
 
 production:
   <<: *default
-  database: qa_server_production
+  database: bcl_up_server_production
 

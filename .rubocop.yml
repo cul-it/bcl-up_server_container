@@ -16,7 +16,12 @@ AllCops:
     - 'tmp/**/*'
 
 Metrics/BlockLength:
-  ExcludedMethods: ['included']
+  Max: 35
+  IgnoredMethods:
+    - included
+    - describe
+    - context
+    - Rails.application.configure
   Exclude:
     - 'spec/**/*'
     - 'tasks/**/*'
