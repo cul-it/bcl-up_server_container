@@ -1,0 +1,47 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - RAILS_ENV=development
+        - PRECOMPILE_ASSETS=false
+        - USE_LOCAL_GEMS=true
+    image: bcl-up-dev-local
+    container_name: bcl-up-dev-local
+    env_file: .env
+    environment:
+      - RAILS_ENV=development
+      - MAX_PERFORMANCE_CACHE_SIZE=33554432
+      - USE_LOCAL_GEMS=true
+    volumes:
+      - .env:/app/cul-it/bcl-up_server-webapp/.env:ro
+      - .:/app/cul-it/bcl-up_server-webapp
+      - ../bcl-up_server:/bcl-up_server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    command: >
+      bash -c "rm -f tmp/pids/server.pid &&
+               bundle config set path 'vendor/bundle' &&
+               bundle install &&
+               bin/rails db:create db:migrate &&
+               bin/rails server -b 0.0.0.0"
+
+  mysql:
+    image: mariadb:10.6
+    restart: always
+    container_name: bcl-up-bcl_up_server-mysql-local
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE_NAME_PREFIX}_development
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - db-mysql-data-local:/var/lib/mysql/data
+
+volumes:
+  db-mysql-data-local:
