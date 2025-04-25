@@ -30,10 +30,14 @@ RUN gem install bundler:${BUNDLER_VERSION}
 
 COPY Gemfile Gemfile.lock ./
 
-RUN gem update --system && bundle install && \
-      rm -rf ${BUNDLE_PATH}/cache/*.gem && \
-      find ${BUNDLE_PATH}/ -name "*.c" -delete && \
-      find ${BUNDLE_PATH}/ -name "*.o" -delete
+# Only run bundle install if not using local gems
+RUN if [ "$USE_LOCAL_GEMS" != "true" ]; then \
+  gem update --system && \
+  bundle install && \
+  rm -rf ${BUNDLE_PATH}/cache/*.gem && \
+  find ${BUNDLE_PATH}/ -name "*.c" -delete && \
+  find ${BUNDLE_PATH}/ -name "*.o" -delete; \
+  fi
 
 WORKDIR /app/cul-it/bcl-up_server-webapp
 COPY . .

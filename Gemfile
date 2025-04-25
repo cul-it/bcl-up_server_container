@@ -31,8 +31,16 @@ gem 'uglifier', '>= 1.3.0'
 
 ## Gems manually added to for qa and qa_server engines
 # Required gems for QA and linked data access
-# gem 'qa_server', '~> 8.0'
-gem 'bcl_up_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
+##############################################################################
+## USE_LOCAL_GEMS is set when running "run_local_gems.sh".                  ##
+## Allows realtime development of bcl-up_server while container is running  ##
+##############################################################################
+if ENV["USE_LOCAL_GEMS"] == "true"
+  gem 'bcl_up_server', path: '/bcl-up_server'
+else
+  gem 'bcl_up_server', git: 'https://github.com/cul-it/bcl-up_server', branch: 'main'
+end
+
 gem 'linkeddata'
 gem 'psych', '~> 5.1'
 gem 'qa', '~> 5.10'
