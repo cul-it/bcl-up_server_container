@@ -9,9 +9,6 @@ source "scripts/log_utils.sh"
 ###############################################################################
 print_header "💻 Executing build.sh"
 
-print_msg "🛠️  Updating bcl_up_server gem from Git..."
-bundle update bcl_up_server
-
 compose_file=""
 environment="development"
 precompile_assets="false"
