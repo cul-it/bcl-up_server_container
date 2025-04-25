@@ -14,5 +14,6 @@ docker compose -f docker-compose-local-gems.yml build --build-arg USE_LOCAL_GEMS
 
 print_msg "🐳  Starting Docker Image..."
 print_header "🚧 This uses the bcl-up_server gem from your local machine" "🛠️  Changes to the gem will be reflected real-time in app"
+print_header "⚙️  RUNNING BCL UP SERVER" "From bcl_up_server_container 🐳 image: $(< ./VERSION)"
 docker compose -f docker-compose-local-gems.yml up
 
