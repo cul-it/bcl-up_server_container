@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/cul-it/bcl-up_server
-  revision: b41add839018c2cc1a953efe38dedb3c9891a40b
+  revision: 7e21d8dbdad945f847f339133baac900a9d0becc
   branch: main
   specs:
     bcl_up_server (1.0.2)
@@ -338,7 +338,7 @@ GEM
       ast (~> 2.4.1)
       racc
     parslet (2.0.0)
-    pkg-config (1.6.1)
+    pkg-config (1.6.2)
     prism (1.4.0)
     psych (5.2.3)
       date
