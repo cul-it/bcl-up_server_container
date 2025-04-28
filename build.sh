@@ -20,8 +20,14 @@ while getopts "pe:" options; do
   esac
 done
 
-print_msg "🛠️  Updating bcl_up_server gem from Git..."
-bundle update bcl_up_server
+## Ensure correct bcl_up_server gem is updated at install.
+print_msg "🛠️  Updating bcl_up_server gem from Git... inside Docker"
+docker build --target base -t bclup-temp-base -f Dockerfile .
+docker run --rm \
+  -v "$PWD":/app \
+  -w /app \
+  bclup-temp-base \
+  sh -c "bundle update bcl_up_server"
 
 if [ ${environment} == "development" ]; then
   export compose_file="docker-compose.yml"
