@@ -12,7 +12,7 @@ print_header "AWS Environment Settings"
 print_msg "AWS Task Definition Used: ${TASK_DEFINITION_NAME}"
 
 print_header "Building Docker image for ${RAILS_ENV} environment"
-./build_amd64.sh -pe ${RAILS_ENV} -f ${PLATFORM}
+./build_amd64.sh -pe ${RAILS_ENV}
 
 print_header "Created Image From ./build.sh"
 print_msg "IMG_LATEST = ${IMG_LATEST}"
