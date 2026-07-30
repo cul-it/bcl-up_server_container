@@ -602,8 +602,9 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (1.7.3)
+    sqlite3 (2.9.5)
       mini_portile2 (~> 2.8.0)
+    sqlite3 (2.9.5-arm64-darwin)
     stringio (3.1.7)
     swagger-docs (0.2.9)
       activesupport (>= 3)
@@ -703,7 +704,7 @@ DEPENDENCIES
   simplecov-rcov
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.6)
+  sqlite3 (~> 2.9)
   swagger-docs
   turbolinks (~> 5)
   tzinfo-data
