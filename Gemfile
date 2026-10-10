@@ -18,7 +18,7 @@ gem 'rack-cors'
 gem 'rails', '~> 7.0.8'
 gem 'sass-rails', '~> 5.0'
 # gem 'sqlite3'
-gem "sqlite3", "~> 1.6"
+gem "sqlite3", "~> 2.9"
 
 gem 'drb'
 gem 'mutex_m'
