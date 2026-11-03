@@ -1,11 +1,18 @@
 ARG RUBY_VERSION=3.4.2
+ARG NODE_VERSION=24
+
+## Node.js source stage. Alpine's apk `nodejs` package is tied to the Alpine
+## release of the ruby base image (Node 22 on 3.21), so copy the binary from
+## the official Node image instead. Bump NODE_VERSION to upgrade Node.
+FROM node:$NODE_VERSION-alpine AS node
+
 FROM ruby:$RUBY_VERSION-alpine AS base
 
 ## Base stage with all necessary libraries
 ## and dependencies to build the application and run it
 ## - build-base: To ensure certain gems can be compiled
 ## - git: Allow bundler to fetch and install ruby gems
-## - nodejs: Required by Rails
+## - libstdc++/libgcc: Runtime libraries for the Node.js binary
 ## - sqlite-dev: For running tests in the container
 ## - tzdata: add time zone support
 ## - mariadb-dev: To allow use of MySQL2 gem
@@ -14,7 +21,10 @@ FROM ruby:$RUBY_VERSION-alpine AS base
 ## https://docs.docker.com/build/cache/optimize/#use-cache-mounts
 RUN --mount=type=cache,target=/var/cache/apk apk add --update --no-cache \
       bash build-base gcompat git imagemagick imagemagick-dev \
-      mariadb-dev nodejs sqlite-dev tzdata libffi-dev yaml-dev
+      libgcc libstdc++ mariadb-dev sqlite-dev tzdata libffi-dev yaml-dev
+
+## Node.js: ExecJS runtime for asset precompilation (uglifier, coffee-rails)
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
 
 
 ################################################################################
