@@ -4,6 +4,7 @@
 # docker compose up app
 services:
   app: &app
+    platform: linux/arm64
     build:
       context: .
       args:
